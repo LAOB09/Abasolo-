@@ -3,258 +3,697 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abasolo | Calidad y buen servicio</title>
-  <meta name="description" content="Abasolo: productos y servicios de calidad con atención personalizada. Visítanos o escríbenos por WhatsApp.">
-  <meta property="og:title" content="Abasolo">
-  <meta property="og:description" content="Productos y servicios de calidad con atención personalizada.">
+  <title>Abasolo → DE | El whisky de México</title>
+  <meta name="description" content="Abasolo, whisky de maíz mexicano de Jilotepec, Estado de México, para Alemania. Disponible en ES, EN y DE.">
+  <meta property="og:title" content="Abasolo → DE">
+  <meta property="og:description" content="Whisky de maíz mexicano: de Jilotepec a Alemania.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#1f4e3d">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231f4e3d'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia,serif'>A</text></svg>">
+  <meta name="theme-color" content="#14100c">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2314100c'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='%23e8b85a' font-family='Georgia,serif'>A</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #faf7f2;
-      --surface: #ffffff;
-      --text: #1d2420;
-      --muted: #5b655f;
-      --brand: #1f4e3d;
-      --brand-2: #2f6b54;
-      --accent: #d9902f;
-      --line: #e6e0d6;
-      --radius: 16px;
+      --ink: #14100c;
+      --ink-2: #1e1711;
+      --ink-3: #2a2018;
+      --amber: #c98a2e;
+      --gold: #e8b85a;
+      --cream: #f4ead8;
+      --paper: #faf5ea;
+      --on-dark: #f4ead8;
+      --on-dark-muted: #bfae93;
+      --on-light: #1c150f;
+      --on-light-muted: #6d5f4c;
+      --line-dark: rgba(244, 234, 216, .14);
+      --line-light: #e4d8c3;
+      --radius: 18px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      background: var(--ink);
+      color: var(--on-dark);
       line-height: 1.6;
     }
-    h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.15; margin: 0 0 .5em; }
+    h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.1; margin: 0 0 .5em; font-weight: 700; }
     a { color: inherit; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    button { font: inherit; cursor: pointer; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: .78rem; font-weight: 600; color: var(--gold); margin: 0 0 14px; }
 
-    /* Header */
+    /* ---------- Header ---------- */
     header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(250, 247, 242, .92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(20, 16, 12, .88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line-dark);
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .logo { font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 1.5rem; color: var(--brand); text-decoration: none; }
-    .nav ul { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; }
-    .nav ul a { text-decoration: none; font-weight: 500; color: var(--muted); }
-    .nav ul a:hover { color: var(--brand); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 66px; }
+    .logo { font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 1.35rem; letter-spacing: .2em; text-decoration: none; color: var(--cream); }
+    .nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
+    .nav ul a { text-decoration: none; font-size: .92rem; color: var(--on-dark-muted); transition: color .2s; }
+    .nav ul a:hover { color: var(--gold); }
+    .langs { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line-dark); border-radius: 999px; }
+    .langs button {
+      border: 0; background: transparent; color: var(--on-dark-muted);
+      font-size: .8rem; font-weight: 600; letter-spacing: .06em;
+      padding: 6px 11px; border-radius: 999px; transition: background .2s, color .2s;
+    }
+    .langs button[aria-pressed="true"] { background: var(--gold); color: var(--ink); }
 
-    /* Buttons */
+    /* ---------- Buttons ---------- */
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 22px; border-radius: 999px;
-      font-weight: 600; text-decoration: none; border: 2px solid transparent;
-      transition: transform .15s, background .15s;
+      padding: 13px 24px; border-radius: 999px; border: 2px solid transparent;
+      font-weight: 600; text-decoration: none; transition: transform .15s, background .2s, border-color .2s;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--accent); color: #1d1206; }
-    .btn-primary:hover { background: #e7a245; }
-    .btn-ghost { border-color: rgba(255,255,255,.6); color: #fff; }
-    .btn-ghost:hover { background: rgba(255,255,255,.1); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: var(--ink); }
+    .btn-gold:hover { background: #f2c770; }
+    .btn-line { border-color: var(--line-dark); color: var(--cream); }
+    .btn-line:hover { border-color: var(--gold); }
 
-    /* Hero */
+    /* ---------- Hero ---------- */
     .hero {
+      position: relative; overflow: hidden;
       background:
-        radial-gradient(circle at 85% 20%, rgba(217,144,47,.25), transparent 45%),
-        linear-gradient(135deg, var(--brand), var(--brand-2));
-      color: #fff;
-      padding: 96px 0 104px;
+        radial-gradient(ellipse at 75% 45%, rgba(201, 138, 46, .35), transparent 55%),
+        radial-gradient(ellipse at 10% 100%, rgba(232, 184, 90, .10), transparent 50%),
+        var(--ink);
+      padding: 80px 0 64px;
     }
-    .hero .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; opacity: .8; margin-bottom: 12px; }
-    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); max-width: 14ch; }
-    .hero p { font-size: 1.15rem; max-width: 52ch; opacity: .9; margin: 0 0 32px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-    /* Sections */
-    section { padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 48px; }
-    .section-title h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--brand); }
-    .section-title p { color: var(--muted); margin: 0 auto; max-width: 56ch; }
-
-    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .card {
-      background: var(--surface); border: 1px solid var(--line);
-      border-radius: var(--radius); padding: 28px;
+    .hero-grid { display: grid; grid-template-columns: 1.5fr .5fr; align-items: center; gap: 32px; }
+    .hero h1 {
+      font-size: clamp(2.3rem, 8vw, 4.6rem); letter-spacing: .05em;
+      display: flex; flex-wrap: wrap; align-items: center; gap: .15em .3em; margin-bottom: 20px;
     }
-    .card .icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: grid; place-items: center; font-size: 1.5rem;
-      background: #eef4f0; margin-bottom: 16px;
+    .hero h1 .arrow { color: var(--gold); display: inline-block; animation: slide 2.4s ease-in-out infinite; }
+    .hero h1 .de { display: inline-flex; align-items: center; gap: .2em; }
+    @keyframes slide { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(.18em); } }
+    .flag { display: inline-block; width: .55em; height: .38em; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,.15); }
+    .flag-mx { background: linear-gradient(90deg, #006847 33.3%, #fff 33.3% 66.6%, #ce1126 66.6%); }
+    .flag-de { background: linear-gradient(#000 33.3%, #dd0000 33.3% 66.6%, #ffce00 66.6%); }
+    .hero .sub { font-size: 1.2rem; color: var(--on-dark-muted); max-width: 46ch; margin: 0 0 32px; }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-bottle { display: flex; justify-content: center; position: relative; }
+    .hero-bottle::before {
+      content: ""; position: absolute; inset: 10% 5% 0;
+      background: radial-gradient(circle, rgba(232, 184, 90, .35), transparent 65%);
+      filter: blur(20px);
     }
-    .card h3 { font-size: 1.25rem; }
-    .card p { color: var(--muted); margin: 0; }
+    .hero-bottle svg { position: relative; width: min(220px, 60vw); height: auto; animation: float 6s ease-in-out infinite; filter: drop-shadow(0 30px 40px rgba(0,0,0,.5)); }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
 
-    .about { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .about-inner { display: grid; gap: 48px; grid-template-columns: 1.1fr 1fr; align-items: center; }
-    .about h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--brand); }
-    .about p { color: var(--muted); }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .stat { text-align: center; padding: 24px 12px; border-radius: var(--radius); background: var(--bg); }
-    .stat strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 2rem; color: var(--brand); }
-    .stat span { font-size: .9rem; color: var(--muted); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 64px; background: var(--line-dark); border: 1px solid var(--line-dark); border-radius: var(--radius); overflow: hidden; }
+    .stat { background: var(--ink-2); padding: 22px 16px; text-align: center; }
+    .stat strong { display: block; font-family: Fraunces, Georgia, serif; font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--gold); white-space: nowrap; }
+    .stat > span { font-size: .85rem; display: block; color: var(--on-dark-muted); }
 
-    /* Contact */
-    .contact-grid { display: grid; gap: 24px; grid-template-columns: 1fr 1.3fr; }
-    .info-list { list-style: none; padding: 0; margin: 0 0 24px; }
-    .info-list li { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; }
-    .info-list li:last-child { border-bottom: 0; }
-    .info-list b { display: block; }
-    .info-list span { color: var(--muted); }
-    .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 340px; }
-    .map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; }
+    /* ---------- Sections ---------- */
+    section { padding: 96px 0; }
+    .light { background: var(--paper); color: var(--on-light); }
+    .light .eyebrow { color: var(--amber); }
+    .dark2 { background: var(--ink-2); }
+    .head { max-width: 640px; margin-bottom: 48px; }
+    .head h2 { font-size: clamp(2rem, 5vw, 3rem); }
+    .head p { margin: 0; color: var(--on-dark-muted); font-size: 1.05rem; }
+    .light .head p { color: var(--on-light-muted); }
 
-    footer { background: var(--brand); color: rgba(255,255,255,.8); padding: 32px 0; font-size: .9rem; }
+    /* ---------- Route (origin) ---------- */
+    .route { position: relative; --p: 0; }
+    .stops-wrap { position: relative; }
+    .stops { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .track, .fill { position: absolute; top: 26px; left: 12.5%; height: 3px; border-radius: 3px; }
+    .track { right: 12.5%; background: repeating-linear-gradient(90deg, var(--line-light) 0 10px, transparent 10px 16px); }
+    .fill { width: calc(75% * var(--p)); background: var(--amber); transition: width .6s cubic-bezier(.6, 0, .2, 1); }
+    .stop {
+      position: relative; z-index: 1; width: 100%;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      background: none; border: 0; padding: 0 6px; color: inherit; text-align: center;
+    }
+    .stop .dot {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--paper); border: 2px solid var(--line-light);
+      font-family: Fraunces, Georgia, serif; font-weight: 700; color: var(--on-light-muted);
+      transition: background .3s, border-color .3s, color .3s, transform .3s;
+    }
+    .stop.done .dot { border-color: var(--amber); color: var(--amber); }
+    .stop[aria-pressed="true"] .dot { background: var(--amber); border-color: var(--amber); color: #fff; transform: scale(1.12); box-shadow: 0 0 0 8px rgba(201, 138, 46, .18); }
+    .stop:hover .dot { border-color: var(--amber); }
+    .stop .name { font-weight: 600; font-size: 1.05rem; }
+    .stop .tag { font-size: .82rem; color: var(--on-light-muted); }
+    .detail {
+      margin-top: 40px; padding: 32px; border-radius: var(--radius);
+      background: #fff; border: 1px solid var(--line-light);
+      display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center;
+    }
+    .detail .num { font-family: Fraunces, Georgia, serif; font-size: 3.4rem; color: var(--amber); line-height: 1; }
+    .detail h3 { font-size: 1.6rem; margin-bottom: 6px; }
+    .detail p { margin: 0; color: var(--on-light-muted); font-size: 1.05rem; }
+    .detail.swap { animation: swap .45s ease; }
+    @keyframes swap { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* ---------- Process ---------- */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .step {
+      padding: 28px 24px; border-radius: var(--radius);
+      background: var(--ink-3); border: 1px solid var(--line-dark);
+      transition: transform .25s, border-color .25s;
+    }
+    .step:hover { transform: translateY(-6px); border-color: var(--gold); }
+    .step .n { font-family: Fraunces, Georgia, serif; font-size: 2.2rem; color: var(--gold); line-height: 1; margin-bottom: 18px; }
+    .step h3 { font-size: 1.2rem; }
+    .step p { margin: 0; color: var(--on-dark-muted); font-size: .95rem; }
+
+    /* ---------- Sizes ---------- */
+    .sizes { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .stage {
+      height: 420px; display: flex; align-items: flex-end; justify-content: center;
+      border-radius: var(--radius); background: radial-gradient(ellipse at 50% 85%, rgba(201,138,46,.22), transparent 60%), #fff;
+      border: 1px solid var(--line-light); padding-bottom: 36px; position: relative;
+    }
+    .stage svg { height: 330px; width: auto; transform-origin: 50% 100%; transform: scale(var(--s, .92)); transition: transform .6s cubic-bezier(.5, 1.6, .4, 1); filter: drop-shadow(0 18px 18px rgba(60, 35, 10, .25)); }
+    .size-picker { display: flex; gap: 10px; margin: 24px 0; }
+    .size-picker button {
+      flex: 1; padding: 16px 8px; border-radius: 14px;
+      background: #fff; border: 2px solid var(--line-light); color: var(--on-light);
+      font-family: Fraunces, Georgia, serif; font-size: 1.4rem; font-weight: 700;
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .size-picker button:hover { border-color: var(--amber); }
+    .size-picker button[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: #fff; }
+    .size-info strong { font-family: Fraunces, Georgia, serif; font-size: 3rem; color: var(--amber); display: block; line-height: 1.1; }
+    .size-info p { margin: 6px 0 0; color: var(--on-light-muted); font-size: 1.05rem; }
+
+    /* ---------- Export ---------- */
+    .codes { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: stretch; }
+    .code-card { padding: 30px; border-radius: var(--radius); background: var(--ink-3); border: 1px solid var(--line-dark); }
+    .code-card .label { display: flex; align-items: center; gap: 10px; color: var(--on-dark-muted); font-size: .9rem; margin-bottom: 14px; }
+    .code-card .label .flag { font-size: 1.6rem; }
+    .code { font-family: Fraunces, Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.4rem); color: var(--cream); letter-spacing: .04em; margin-bottom: 8px; }
+    .code-card .goods { color: var(--on-dark-muted); font-size: .9rem; margin: 0 0 18px; }
+    .copy {
+      border: 1px solid var(--line-dark); background: transparent; color: var(--cream);
+      padding: 8px 16px; border-radius: 999px; font-size: .85rem; font-weight: 600; transition: border-color .2s, color .2s;
+    }
+    .copy:hover { border-color: var(--gold); color: var(--gold); }
+    .codes .arrow-mid { display: grid; place-items: center; font-size: 2.2rem; color: var(--gold); }
+
+    /* ---------- Contact ---------- */
+    .contact { text-align: center; background: linear-gradient(135deg, var(--amber), #a8681c); color: #fff; }
+    .contact h2 { font-size: clamp(2rem, 5vw, 3rem); }
+    .contact p { max-width: 50ch; margin: 0 auto 28px; font-size: 1.1rem; opacity: .92; }
+    .contact .btn { background: var(--ink); color: var(--cream); }
+
+    footer { padding: 36px 0; font-size: .88rem; color: var(--on-dark-muted); border-top: 1px solid var(--line-dark); }
     footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
-    /* Floating WhatsApp */
-    .wa-float {
-      position: fixed; right: 20px; bottom: 20px; z-index: 20;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: #25d366; display: grid; place-items: center;
-      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+    /* ---------- Age gate ---------- */
+    .gate {
+      position: fixed; inset: 0; z-index: 100;
+      display: grid; place-items: center; padding: 20px;
+      background: rgba(10, 8, 6, .82); backdrop-filter: blur(14px);
     }
-    .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+    .gate[hidden] { display: none; }
+    .gate-box {
+      width: 100%; max-width: 440px; text-align: center;
+      background: var(--ink-2); border: 1px solid var(--line-dark); border-radius: 22px; padding: 36px 28px;
+    }
+    .gate-box .logo { display: block; margin-bottom: 18px; }
+    .gate-box h2 { font-size: 1.8rem; }
+    .gate-box p { color: var(--on-dark-muted); margin: 0 0 24px; }
+    .gate-box .actions { display: flex; flex-direction: column; gap: 10px; }
+    .gate-box .langs { justify-content: center; width: max-content; margin: 22px auto 0; }
+    .gate-box .denied { color: var(--gold); margin: 18px 0 0; }
 
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .steps { grid-template-columns: 1fr 1fr; }
+      .codes { grid-template-columns: 1fr; }
+      .codes .arrow-mid { transform: rotate(90deg); }
+    }
     @media (max-width: 760px) {
       .nav ul { display: none; }
-      .hero { padding: 64px 0 72px; }
-      section { padding: 56px 0; }
-      .about-inner, .contact-grid { grid-template-columns: 1fr; }
+      section { padding: 64px 0; }
+      .hero { padding: 48px 0 48px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-bottle { order: -1; }
+      .hero-bottle svg { width: 150px; }
+      .stats { margin-top: 44px; }
+      .stat > span { font-size: .75rem; }
+      .stat strong { font-size: 1.3rem; }
+      .stat { padding: 18px 8px; }
+      .sizes { grid-template-columns: 1fr; gap: 24px; }
+      .stage { height: 340px; }
+      .stage svg { height: 260px; }
+      .detail { grid-template-columns: 1fr; padding: 24px; gap: 8px; }
+      .detail .num { font-size: 2.4rem; }
+      /* Route turns vertical */
+      .stops { grid-template-columns: 1fr; }
+      .stops li { height: 76px; }
+      .track, .fill { top: 27px; left: 26px; width: 3px; }
+      .track { right: auto; height: calc(100% - 76px); background: repeating-linear-gradient(180deg, var(--line-light) 0 10px, transparent 10px 16px); }
+      .fill { height: calc((100% - 76px) * var(--p)); transition: height .6s cubic-bezier(.6, 0, .2, 1); }
+      .stop { flex-direction: row; text-align: left; gap: 16px; padding: 0; }
+      .stop .tag { margin-left: auto; }
+    }
+    @media (max-width: 480px) {
+      .steps { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
 
   <!--
-    ============================================================
-    PARA PERSONALIZAR: cambia los textos marcados abajo.
-    - Número de WhatsApp: busca "521XXXXXXXXXX" (3 lugares) y pon tu
-      número con lada de país, sin espacios ni signos. Ej: 5214611234567
-    - Teléfono, dirección, horario y correo: sección "Contacto".
-    - Mapa: cambia "Abasolo, Guanajuato" en el iframe por tu dirección.
-    ============================================================
+    PARA PERSONALIZAR:
+    - Correo de contacto: busca "contacto@ejemplo.com" y cámbialo por el tuyo.
+    - Los textos en los 3 idiomas están al final, en el objeto "T" del <script>.
   -->
+
+  <!-- Botella (dibujo reutilizable) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="liquid" x1="0" x2="1">
+        <stop offset="0" stop-color="#7a3f0e"/>
+        <stop offset=".42" stop-color="#cf8a2c"/>
+        <stop offset=".6" stop-color="#e9ab47"/>
+        <stop offset="1" stop-color="#6e370b"/>
+      </linearGradient>
+      <linearGradient id="shine" x1="0" x2="1">
+        <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#fff" stop-opacity=".45"/>
+        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <clipPath id="bclip">
+        <path d="M48 34H72V92C72 108 100 114 100 142V300Q100 314 86 314H34Q20 314 20 300V142C20 114 48 108 48 92Z"/>
+      </clipPath>
+    </defs>
+    <symbol id="bottle" viewBox="0 0 120 320">
+      <g clip-path="url(#bclip)">
+        <rect width="120" height="320" fill="#3a2a1c"/>
+        <rect y="124" width="120" height="200" fill="url(#liquid)"/>
+        <rect x="27" y="40" width="12" height="270" fill="url(#shine)"/>
+      </g>
+      <path d="M48 34H72V92C72 108 100 114 100 142V300Q100 314 86 314H34Q20 314 20 300V142C20 114 48 108 48 92Z" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+      <rect x="44" y="2" width="32" height="34" rx="4" fill="#1b1410"/>
+      <rect x="44" y="28" width="32" height="6" fill="#e8b85a"/>
+      <rect x="29" y="172" width="62" height="94" rx="4" fill="#f4ead8"/>
+      <rect x="33" y="176" width="54" height="86" rx="2" fill="none" stroke="#c98a2e" stroke-width="1"/>
+      <text x="60" y="212" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="10.5" letter-spacing="1.2" fill="#1c150f">ABASOLO</text>
+      <line x1="44" y1="220" x2="76" y2="220" stroke="#c98a2e" stroke-width="1"/>
+      <text x="60" y="233" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="6" letter-spacing="1.5" fill="#6d5f4c">WHISKY</text>
+      <text x="60" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="6" letter-spacing="1.5" fill="#6d5f4c">MÉXICO</text>
+    </symbol>
+  </svg>
+
+  <!-- Verificación de edad -->
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" hidden>
+    <div class="gate-box">
+      <span class="logo">ABASOLO</span>
+      <h2 id="gate-title" data-i18n="gate_title">¿Eres mayor de edad?</h2>
+      <p data-i18n="gate_text">Este sitio contiene información sobre bebidas alcohólicas.</p>
+      <div class="actions">
+        <button class="btn btn-gold" id="gate-yes" style="justify-content:center" data-i18n="gate_yes">Sí, soy mayor de edad</button>
+        <button class="btn btn-line" id="gate-no" style="justify-content:center;background:none" data-i18n="gate_no">No</button>
+      </div>
+      <p class="denied" id="gate-denied" data-i18n="gate_denied" hidden></p>
+      <div class="langs" role="group" aria-label="Idioma">
+        <button data-lang="es">ES</button><button data-lang="en">EN</button><button data-lang="de">DE</button>
+      </div>
+    </div>
+  </div>
 
   <header>
     <div class="wrap nav">
-      <a href="#" class="logo">Abasolo</a>
+      <a href="#top" class="logo">ABASOLO</a>
       <nav>
         <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#origen" data-i18n="nav_origin">Origen</a></li>
+          <li><a href="#proceso" data-i18n="nav_process">Proceso</a></li>
+          <li><a href="#presentaciones" data-i18n="nav_sizes">Presentaciones</a></li>
+          <li><a href="#exportacion" data-i18n="nav_export">Exportación</a></li>
+          <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
         </ul>
       </nav>
+      <div class="langs" role="group" aria-label="Idioma">
+        <button data-lang="es">ES</button><button data-lang="en">EN</button><button data-lang="de">DE</button>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="top">
+    <!-- Hero -->
     <section class="hero">
       <div class="wrap">
-        <div class="eyebrow">Bienvenidos</div>
-        <h1>Calidad y confianza en cada visita</h1>
-        <p>En Abasolo te ofrecemos productos y servicios de primera, con atención cercana y precios justos. Estamos para servirte.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="https://wa.me/521XXXXXXXXXX?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
-          <a class="btn btn-ghost" href="#contacto">Cómo llegar</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicios">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Lo que ofrecemos</h2>
-          <p>Todo lo que necesitas en un solo lugar.</p>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <div class="icon">🛒</div>
-            <h3>Productos de calidad</h3>
-            <p>Seleccionamos cuidadosamente cada artículo para que te lleves lo mejor.</p>
-          </div>
-          <div class="card">
-            <div class="icon">🤝</div>
-            <h3>Atención personalizada</h3>
-            <p>Te asesoramos para que encuentres exactamente lo que buscas.</p>
-          </div>
-          <div class="card">
-            <div class="icon">🚚</div>
-            <h3>Pedidos y entregas</h3>
-            <p>Haz tu pedido por WhatsApp y pregunta por nuestro servicio a domicilio.</p>
-          </div>
-          <div class="card">
-            <div class="icon">💳</div>
-            <h3>Formas de pago</h3>
-            <p>Aceptamos efectivo, tarjeta y transferencia.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="nosotros" class="about">
-      <div class="wrap about-inner">
-        <div>
-          <h2>Sobre nosotros</h2>
-          <p>Somos un negocio local comprometido con nuestra comunidad. Desde que abrimos nuestras puertas, nuestro objetivo ha sido el mismo: que cada cliente se vaya contento y quiera regresar.</p>
-          <p>Gracias por tu preferencia.</p>
-        </div>
-        <div class="stats">
-          <div class="stat"><strong>10+</strong><span>años</span></div>
-          <div class="stat"><strong>1000+</strong><span>clientes</span></div>
-          <div class="stat"><strong>100%</strong><span>local</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Visítanos</h2>
-          <p>Con gusto te atendemos en persona, por teléfono o por WhatsApp.</p>
-        </div>
-        <div class="contact-grid">
+        <div class="hero-grid">
           <div>
-            <ul class="info-list">
-              <li>📍<div><b>Dirección</b><span>Calle y número, Colonia, Abasolo, Gto.</span></div></li>
-              <li>🕘<div><b>Horario</b><span>Lunes a sábado: 9:00 a 20:00<br>Domingo: 10:00 a 15:00</span></div></li>
-              <li>📞<div><b>Teléfono</b><span><a href="tel:+52XXXXXXXXXX">(XXX) XXX XXXX</a></span></div></li>
-              <li>✉️<div><b>Correo</b><span><a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a></span></div></li>
-            </ul>
-            <a class="btn btn-primary" href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener">Enviar mensaje</a>
+            <p class="eyebrow" data-i18n="hero_eyebrow">El whisky de México</p>
+            <h1>
+              <span>ABASOLO</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <span class="de">DE <i class="flag flag-de" aria-hidden="true"></i></span>
+            </h1>
+            <p class="sub" data-i18n="hero_sub">Whisky de maíz mexicano: de Jilotepec, Estado de México, a Alemania.</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="#origen" data-i18n="hero_cta1">Conocer el origen</a>
+              <a class="btn btn-line" href="#presentaciones" data-i18n="hero_cta2">Ver presentaciones</a>
+            </div>
           </div>
-          <div class="map">
-            <iframe title="Ubicación en el mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Abasolo,+Guanajuato&output=embed"></iframe>
+          <div class="hero-bottle">
+            <svg viewBox="0 0 120 320" role="img" aria-label="Botella Abasolo"><use href="#bottle"/></svg>
           </div>
         </div>
+
+        <div class="stats reveal">
+          <div class="stat"><strong>≈ <span data-count="87">87</span> km</strong><span data-i18n="stat_km">Jilotepec – Toluca</span></div>
+          <div class="stat"><strong data-count="3">3</strong><span data-i18n="stat_sizes">Presentaciones</span></div>
+          <div class="stat"><strong><i class="flag flag-mx"></i> → <i class="flag flag-de"></i></strong><span data-i18n="stat_route">Ruta de exportación</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Origen -->
+    <section id="origen" class="light">
+      <div class="wrap">
+        <div class="head reveal">
+          <p class="eyebrow" data-i18n="nav_origin">Origen</p>
+          <h2 data-i18n="origin_title">Del campo a Alemania</h2>
+          <p data-i18n="origin_lead">Toca cada punto de la ruta.</p>
+        </div>
+        <div class="route reveal" id="route">
+          <div class="stops-wrap">
+          <span class="track"></span><span class="fill"></span>
+          <ol class="stops">
+            <li><button class="stop" data-i="0"><span class="dot">1</span><span class="name">Calimaya</span><span class="tag" data-i18n="tag_calimaya">Maíz</span></button></li>
+            <li><button class="stop" data-i="1"><span class="dot">2</span><span class="name">Jilotepec</span><span class="tag" data-i18n="tag_jilotepec">Destilería</span></button></li>
+            <li><button class="stop" data-i="2"><span class="dot">3</span><span class="name">Toluca</span><span class="tag">≈ 87 km</span></button></li>
+            <li><button class="stop" data-i="3"><span class="dot">DE</span><span class="name" data-i18n="name_de">Alemania</span><span class="tag" data-i18n="tag_de">Destino</span></button></li>
+          </ol>
+          </div>
+          <div class="detail" id="detail" aria-live="polite">
+            <div class="num" id="detail-num">01</div>
+            <div>
+              <h3 id="detail-title">Calimaya</h3>
+              <p id="detail-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso -->
+    <section id="proceso" class="dark2">
+      <div class="wrap">
+        <div class="head reveal">
+          <p class="eyebrow" data-i18n="nav_process">Proceso</p>
+          <h2 data-i18n="process_title">Del maíz al vaso</h2>
+          <p data-i18n="process_lead">Un whisky hecho con tradición mexicana.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal"><div class="n">01</div><h3 data-i18n="p1_t"></h3><p data-i18n="p1_d"></p></div>
+          <div class="step reveal"><div class="n">02</div><h3 data-i18n="p2_t"></h3><p data-i18n="p2_d"></p></div>
+          <div class="step reveal"><div class="n">03</div><h3 data-i18n="p3_t"></h3><p data-i18n="p3_d"></p></div>
+          <div class="step reveal"><div class="n">04</div><h3 data-i18n="p4_t"></h3><p data-i18n="p4_d"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentaciones -->
+    <section id="presentaciones" class="light">
+      <div class="wrap sizes">
+        <div class="stage reveal">
+          <svg id="size-bottle" viewBox="0 0 120 320" role="img" aria-label="Botella Abasolo"><use href="#bottle"/></svg>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="nav_sizes">Presentaciones</p>
+          <h2 style="font-size:clamp(2rem,5vw,3rem)" data-i18n="sizes_title">Presentaciones</h2>
+          <p style="margin:0;color:var(--on-light-muted)" data-i18n="sizes_lead">Elige un tamaño.</p>
+          <div class="size-picker" role="group" id="size-picker">
+            <button data-size="0.5"></button><button data-size="0.7"></button><button data-size="1"></button>
+          </div>
+          <div class="size-info">
+            <strong id="size-cl">70 cl</strong>
+            <p id="size-note"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exportación -->
+    <section id="exportacion" class="dark2">
+      <div class="wrap">
+        <div class="head reveal">
+          <p class="eyebrow" data-i18n="nav_export">Exportación</p>
+          <h2 data-i18n="export_title">Datos de exportación</h2>
+          <p data-i18n="export_lead">Clasificación arancelaria del producto en origen y destino.</p>
+        </div>
+        <div class="codes reveal">
+          <div class="code-card">
+            <div class="label"><i class="flag flag-mx"></i><span data-i18n="code_mx">Fracción arancelaria · México</span></div>
+            <div class="code">2208.30.05.03</div>
+            <p class="goods" data-i18n="goods">Mercancía: whisky</p>
+            <button class="copy" data-copy="2208.30.05.03" data-i18n="copy">Copiar</button>
+          </div>
+          <div class="arrow-mid" aria-hidden="true">→</div>
+          <div class="code-card">
+            <div class="label"><i class="flag flag-de"></i><span data-i18n="code_de">Código arancelario · Alemania (UE)</span></div>
+            <div class="code">2208 30 82 00</div>
+            <p class="goods" data-i18n="goods">Mercancía: whisky</p>
+            <button class="copy" data-copy="2208 30 82 00" data-i18n="copy">Copiar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+      <div class="wrap reveal">
+        <h2 data-i18n="contact_title">¿Te interesa Abasolo?</h2>
+        <p data-i18n="contact_text">Escríbenos para precios, muestras y condiciones de envío.</p>
+        <a class="btn" href="mailto:contacto@ejemplo.com?subject=Abasolo" data-i18n="contact_cta">Escríbenos</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <span>© <span id="year"></span> Abasolo. Todos los derechos reservados.</span>
-      <a href="#">Volver arriba ↑</a>
+      <span>© <span id="year"></span> Abasolo · <span data-i18n="rights">Todos los derechos reservados.</span></span>
+      <span data-i18n="responsible">Disfruta con responsabilidad.</span>
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.7C5.8.7.7 5.79.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.33 11.33 0 0 0 5.72 1.46h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg>
-  </a>
+  <script>
+    const T = {
+      es: {
+        title: "Abasolo → DE | El whisky de México",
+        nav_origin: "Origen", nav_process: "Proceso", nav_sizes: "Presentaciones", nav_export: "Exportación", nav_contact: "Contacto",
+        hero_eyebrow: "El whisky de México",
+        hero_sub: "Whisky de maíz mexicano: de Jilotepec, Estado de México, a Alemania.",
+        hero_cta1: "Conocer el origen", hero_cta2: "Ver presentaciones",
+        stat_km: "Jilotepec – Toluca", stat_sizes: "Presentaciones", stat_route: "Ruta de exportación",
+        origin_title: "Del campo a Alemania", origin_lead: "Toca cada punto de la ruta para conocerlo.",
+        tag_calimaya: "Maíz", tag_jilotepec: "Destilería", name_de: "Alemania", tag_de: "Destino",
+        stop0: "Maíz cacahuazintle cultivado en el Valle de Toluca: grano grande y blanco, la base del whisky.",
+        stop1: "La destilería en Jilotepec, Estado de México, donde el maíz se nixtamaliza, destila y reposa.",
+        stop2: "Centro logístico del Estado de México, a unos 87 km de la destilería.",
+        stop3: "Destino final: Alemania. Presentaciones pensadas para el mercado europeo.",
+        process_title: "Del maíz al vaso", process_lead: "Un whisky hecho con tradición mexicana.",
+        p1_t: "Maíz cacahuazintle", p1_d: "Maíz nativo de grano grande y blanco.",
+        p2_t: "Nixtamalización", p2_d: "Cocción tradicional del maíz con agua de cal, como en México desde hace siglos.",
+        p3_t: "Destilación", p3_d: "El maíz fermentado se destila con cuidado.",
+        p4_t: "Reposo en barrica", p4_d: "El destilado madura en barricas de roble y gana color y profundidad.",
+        sizes_title: "Tres tamaños", sizes_lead: "Elige un tamaño para verlo.",
+        size_0_5: "Formato compacto, ideal para regalo.",
+        size_0_7: "Formato estándar del mercado europeo.",
+        size_1: "Formato grande para restaurantes y bares.",
+        export_title: "Datos de exportación", export_lead: "Clasificación arancelaria del producto en origen y destino.",
+        code_mx: "Fracción arancelaria · México", code_de: "Código arancelario · Alemania (UE)",
+        goods: "Mercancía: whisky", copy: "Copiar", copied: "Copiado ✓",
+        contact_title: "¿Te interesa Abasolo?", contact_text: "Escríbenos para precios, muestras y condiciones de envío.", contact_cta: "Escríbenos",
+        rights: "Todos los derechos reservados.", responsible: "Disfruta con responsabilidad. Venta solo a mayores de edad.",
+        gate_title: "¿Eres mayor de edad?",
+        gate_text: "Este sitio contiene información sobre bebidas alcohólicas. Confirma que tienes la edad legal para consumir alcohol en tu país.",
+        gate_yes: "Sí, soy mayor de edad", gate_no: "No", gate_denied: "Lo sentimos, no puedes entrar a este sitio."
+      },
+      en: {
+        title: "Abasolo → DE | The whisky of Mexico",
+        nav_origin: "Origin", nav_process: "Process", nav_sizes: "Sizes", nav_export: "Export", nav_contact: "Contact",
+        hero_eyebrow: "The whisky of Mexico",
+        hero_sub: "Mexican corn whisky: from Jilotepec, State of Mexico, to Germany.",
+        hero_cta1: "Discover the origin", hero_cta2: "See bottle sizes",
+        stat_km: "Jilotepec – Toluca", stat_sizes: "Bottle sizes", stat_route: "Export route",
+        origin_title: "From the field to Germany", origin_lead: "Tap each stop on the route to learn more.",
+        tag_calimaya: "Corn", tag_jilotepec: "Distillery", name_de: "Germany", tag_de: "Destination",
+        stop0: "Cacahuazintle corn grown in the Toluca Valley: large white kernels, the base of the whisky.",
+        stop1: "The distillery in Jilotepec, State of Mexico, where the corn is nixtamalized, distilled and aged.",
+        stop2: "Logistics hub of the State of Mexico, about 87 km from the distillery.",
+        stop3: "Final destination: Germany. Bottle sizes designed for the European market.",
+        process_title: "From corn to glass", process_lead: "A whisky made with Mexican tradition.",
+        p1_t: "Cacahuazintle corn", p1_d: "Native corn with large white kernels.",
+        p2_t: "Nixtamalization", p2_d: "The corn is cooked in limewater, a Mexican tradition for centuries.",
+        p3_t: "Distillation", p3_d: "The fermented corn is carefully distilled.",
+        p4_t: "Barrel aging", p4_d: "The spirit matures in oak barrels, gaining color and depth.",
+        sizes_title: "Three sizes", sizes_lead: "Choose a size to see it.",
+        size_0_5: "Compact size, ideal as a gift.",
+        size_0_7: "The standard size in the European market.",
+        size_1: "Large size for restaurants and bars.",
+        export_title: "Export data", export_lead: "Tariff classification of the product at origin and destination.",
+        code_mx: "Tariff code · Mexico", code_de: "Tariff code · Germany (EU)",
+        goods: "Goods: whisky", copy: "Copy", copied: "Copied ✓",
+        contact_title: "Interested in Abasolo?", contact_text: "Write to us for prices, samples and shipping terms.", contact_cta: "Contact us",
+        rights: "All rights reserved.", responsible: "Please enjoy responsibly. Sale to adults only.",
+        gate_title: "Are you of legal drinking age?",
+        gate_text: "This site contains information about alcoholic beverages. Please confirm that you are of legal drinking age in your country.",
+        gate_yes: "Yes, I am", gate_no: "No", gate_denied: "Sorry, you cannot enter this site."
+      },
+      de: {
+        title: "Abasolo → DE | Der Whisky aus Mexiko",
+        nav_origin: "Herkunft", nav_process: "Herstellung", nav_sizes: "Flaschengrößen", nav_export: "Export", nav_contact: "Kontakt",
+        hero_eyebrow: "Der Whisky aus Mexiko",
+        hero_sub: "Mexikanischer Mais-Whisky – von Jilotepec, Bundesstaat Mexiko, nach Deutschland.",
+        hero_cta1: "Herkunft entdecken", hero_cta2: "Flaschengrößen ansehen",
+        stat_km: "Jilotepec – Toluca", stat_sizes: "Flaschengrößen", stat_route: "Exportroute",
+        origin_title: "Vom Feld nach Deutschland", origin_lead: "Tippen Sie auf jede Station der Route.",
+        tag_calimaya: "Mais", tag_jilotepec: "Destillerie", name_de: "Deutschland", tag_de: "Ziel",
+        stop0: "Cacahuazintle-Mais aus dem Tal von Toluca: große, weiße Körner – die Basis des Whiskys.",
+        stop1: "Die Destillerie in Jilotepec, Bundesstaat Mexiko: Hier wird der Mais nixtamalisiert, destilliert und gereift.",
+        stop2: "Logistikzentrum des Bundesstaats Mexiko, etwa 87 km von der Destillerie entfernt.",
+        stop3: "Endziel: Deutschland. Flaschengrößen für den europäischen Markt.",
+        process_title: "Vom Mais ins Glas", process_lead: "Ein Whisky aus mexikanischer Tradition.",
+        p1_t: "Cacahuazintle-Mais", p1_d: "Heimischer Mais mit großen, weißen Körnern.",
+        p2_t: "Nixtamalisierung", p2_d: "Der Mais wird in Kalkwasser gekocht – eine jahrhundertealte mexikanische Tradition.",
+        p3_t: "Destillation", p3_d: "Der vergorene Mais wird sorgfältig destilliert.",
+        p4_t: "Fassreifung", p4_d: "Der Brand reift in Eichenfässern und gewinnt Farbe und Tiefe.",
+        sizes_title: "Drei Größen", sizes_lead: "Wählen Sie eine Größe.",
+        size_0_5: "Kompaktes Format, ideal als Geschenk.",
+        size_0_7: "Standardformat auf dem europäischen Markt.",
+        size_1: "Großes Format für Gastronomie und Bars.",
+        export_title: "Exportdaten", export_lead: "Zolltarifliche Einreihung der Ware im Ursprungs- und Bestimmungsland.",
+        code_mx: "Zolltarifnummer · Mexiko", code_de: "Zolltarifnummer · Deutschland (EU)",
+        goods: "Ware: Whisky", copy: "Kopieren", copied: "Kopiert ✓",
+        contact_title: "Interesse an Abasolo?", contact_text: "Schreiben Sie uns für Preise, Muster und Lieferbedingungen.", contact_cta: "Kontakt aufnehmen",
+        rights: "Alle Rechte vorbehalten.", responsible: "Bitte verantwortungsvoll genießen. Abgabe nur an Personen ab 18 Jahren.",
+        gate_title: "Sind Sie volljährig?",
+        gate_text: "Diese Website enthält Informationen über alkoholische Getränke. Bitte bestätigen Sie, dass Sie das gesetzliche Mindestalter für Alkohol in Ihrem Land erreicht haben.",
+        gate_yes: "Ja, ich bin volljährig", gate_no: "Nein", gate_denied: "Leider dürfen Sie diese Website nicht betreten."
+      }
+    };
+    const LOCALE = { es: "es-MX", en: "en", de: "de-DE" };
+    const SIZES = { "0.5": { cl: 50, s: .8, key: "size_0_5" }, "0.7": { cl: 70, s: .92, key: "size_0_7" }, "1": { cl: 100, s: 1.04, key: "size_1" } };
+    const STOPS = ["Calimaya", "Jilotepec", "Toluca", null];
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    const store = {
+      get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+      set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    };
+
+    let lang = store.get("lang") || ((navigator.language || "es").slice(0, 2));
+    if (!T[lang]) lang = "es";
+    let stop = 0;
+    let size = "0.7";
+
+    function t(k) { return T[lang][k] ?? T.es[k] ?? ""; }
+
+    function setLang(l) {
+      lang = l;
+      store.set("lang", l);
+      document.documentElement.lang = l;
+      document.title = t("title");
+      document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+      document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === l));
+      document.querySelectorAll("#size-picker button").forEach(b => {
+        b.textContent = Number(b.dataset.size).toLocaleString(LOCALE[l]) + " l";
+      });
+      renderStop(false);
+      renderSize();
+    }
+
+    // Ruta de origen
+    const route = document.getElementById("route");
+    const detail = document.getElementById("detail");
+    function renderStop(animate = true) {
+      route.style.setProperty("--p", stop / 3);
+      document.querySelectorAll(".stop").forEach((b, i) => {
+        b.setAttribute("aria-pressed", i === stop);
+        b.classList.toggle("done", i < stop);
+      });
+      document.getElementById("detail-num").textContent = stop === 3 ? "DE" : "0" + (stop + 1);
+      document.getElementById("detail-title").textContent = STOPS[stop] || t("name_de");
+      document.getElementById("detail-text").textContent = t("stop" + stop);
+      if (animate) { detail.classList.remove("swap"); void detail.offsetWidth; detail.classList.add("swap"); }
+    }
+    document.querySelectorAll(".stop").forEach(b => b.addEventListener("click", () => { stop = +b.dataset.i; renderStop(); }));
+
+    // Presentaciones
+    function renderSize() {
+      const s = SIZES[size];
+      document.getElementById("size-bottle").style.setProperty("--s", s.s);
+      document.getElementById("size-cl").textContent = s.cl + " cl";
+      document.getElementById("size-note").textContent = t(s.key);
+      document.querySelectorAll("#size-picker button").forEach(b => b.setAttribute("aria-pressed", b.dataset.size === size));
+    }
+    document.querySelectorAll("#size-picker button").forEach(b => b.addEventListener("click", () => { size = b.dataset.size; renderSize(); }));
+
+    // Copiar códigos
+    document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(b.dataset.copy); }
+      catch (e) {
+        const ta = document.createElement("textarea");
+        ta.value = b.dataset.copy; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); } catch (e2) {}
+        ta.remove();
+      }
+      b.textContent = t("copied");
+      setTimeout(() => { b.textContent = t("copy"); }, 1600);
+    }));
+
+    // Idiomas
+    document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+    // Verificación de edad
+    const gate = document.getElementById("gate");
+    if (store.get("age-ok") !== "1") { gate.hidden = false; document.body.style.overflow = "hidden"; }
+    document.getElementById("gate-yes").addEventListener("click", () => {
+      store.set("age-ok", "1"); gate.hidden = true; document.body.style.overflow = "";
+    });
+    document.getElementById("gate-no").addEventListener("click", () => { document.getElementById("gate-denied").hidden = false; });
+
+    // Animaciones al hacer scroll y contadores
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function countUp(el) {
+      const end = +el.dataset.count, start = performance.now(), dur = 1200;
+      (function tick(now) {
+        const k = Math.min(1, (now - start) / dur);
+        el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) requestAnimationFrame(tick);
+      })(start);
+    }
+    if ("IntersectionObserver" in window && !reduce) {
+      const io = new IntersectionObserver(entries => entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        e.target.querySelectorAll("[data-count]").forEach(countUp);
+        io.unobserve(e.target);
+      }), { threshold: .15 });
+      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    setLang(lang);
+  </script>
 </body>
 </html>
