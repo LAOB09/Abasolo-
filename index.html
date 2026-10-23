@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0A0A0A">
   <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="preload" as="image" href="assets/botella.webp">
+  <link rel="preload" as="image" href="assets/botella-de.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Carlito:wght@400;700&display=swap" rel="stylesheet">
@@ -83,7 +83,7 @@
     .btn-line:hover { border-color: var(--gold); }
     .hero-bottle { position: relative; display: flex; justify-content: center; }
     .hero-bottle::before { content: ""; position: absolute; inset: 15% 0 5%; background: radial-gradient(circle, rgba(201,164,92,.35), transparent 62%); filter: blur(24px); }
-    .hero-bottle img { position: relative; width: min(230px, 55vw); height: auto; animation: float 7s ease-in-out infinite; filter: drop-shadow(0 30px 40px rgba(0,0,0,.6)); }
+    .hero-bottle img { position: relative; height: min(600px, 74vh); width: auto; animation: float 7s ease-in-out infinite; filter: drop-shadow(0 30px 40px rgba(0,0,0,.6)); }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
     .flag { display: inline-block; width: .55em; height: .37em; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,.15); vertical-align: middle; }
     .flag-mx { background: linear-gradient(90deg, #006847 33.3%, #fff 33.3% 66.6%, #ce1126 66.6%); }
@@ -268,6 +268,24 @@
 
     .card p.label { color: var(--gold); }
 
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: 1.25fr .75fr; gap: 28px; align-items: center; }
+    .gallery > * { min-width: 0; }
+    .gal-main { position: relative; height: 560px; display: flex; align-items: center; justify-content: center; padding: 30px 72px; overflow: hidden; touch-action: pan-y; user-select: none; background: radial-gradient(ellipse at 50% 62%, rgba(201,164,92,.24), transparent 62%), var(--card); }
+    .gal-main img { max-height: 100%; max-width: 100%; width: auto; height: auto; filter: drop-shadow(0 24px 30px rgba(0,0,0,.6)); -webkit-user-drag: none; }
+    .gal-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: rgba(10,10,10,.65); color: var(--text); font-size: 1.6rem; line-height: 1; display: grid; place-items: center; padding: 0 0 3px; transition: border-color .2s, color .2s; }
+    .gal-nav:hover { border-color: var(--gold); color: var(--gold); }
+    .gal-nav.prev { left: 14px; }
+    .gal-nav.next { right: 14px; }
+    .gal-count { position: absolute; bottom: 14px; right: 18px; font-size: .78rem; letter-spacing: .22em; color: var(--muted); }
+    .gal-info h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    .gal-info .desc { color: var(--muted); margin: 0; min-height: 4.8em; }
+    .gal-thumbs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 24px; }
+    .gal-thumbs button { aspect-ratio: 3 / 4; padding: 6px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); display: flex; align-items: center; justify-content: center; opacity: .55; transition: border-color .2s, opacity .2s; }
+    .gal-thumbs button:hover { opacity: .9; }
+    .gal-thumbs button[aria-pressed="true"] { border-color: var(--gold); opacity: 1; }
+    .gal-thumbs img { max-height: 100%; max-width: 100%; width: auto; height: auto; }
+
     /* Bibliography */
     details.bib summary { list-style: none; cursor: pointer; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
     details.bib summary::-webkit-details-marker { display: none; }
@@ -299,7 +317,7 @@
 
     @media (max-width: 980px) {
       .nav-tag { display: none; }
-      .phys, .region, .tariff, .duties, .calc { grid-template-columns: 1fr; }
+      .phys, .region, .tariff, .duties, .calc, .gallery { grid-template-columns: 1fr; }
       .pres { position: static; max-width: 420px; }
       .regs, .pack { grid-template-columns: 1fr 1fr; }
       .toc-grid { grid-template-columns: 1fr; gap: 10px; }
@@ -312,7 +330,7 @@
       .hero { padding: 36px 0 44px; }
       .hero-grid { grid-template-columns: 1fr; gap: 12px; }
       .hero-bottle { order: -1; }
-      .hero-bottle img { width: 130px; }
+      .hero-bottle img { height: 300px; }
       .stats { grid-template-columns: 1fr 1fr; margin-top: 36px; }
       .toc ol { columns: 1; }
       .price-cards, .two, .regs, .pack { grid-template-columns: 1fr; }
@@ -324,6 +342,11 @@
       .pay .card { grid-template-columns: 1fr; gap: 6px; }
       .pay .val { text-align: left; }
       .alert { grid-template-columns: 1fr; }
+      .gal-main { height: 420px; padding: 20px 58px; }
+      .gal-nav { width: 40px; height: 40px; }
+      .gal-nav.prev { left: 8px; }
+      .gal-nav.next { right: 8px; }
+      .gal-thumbs { gap: 6px; }
       .calc, .codes, .zero { padding: 20px 16px; }
       td, th { padding: 10px 12px; }
       .stops { grid-template-columns: 1fr; }
@@ -388,16 +411,25 @@
             <p class="sub" data-i18n="hero_sub"></p>
             <div class="actions">
               <a class="btn btn-gold" href="#s1" data-i18n="hero_cta1"></a>
+              <a class="btn btn-line" href="#galeria" data-i18n="hero_cta3"></a>
               <a class="btn btn-line" href="#s7" data-i18n="hero_cta2"></a>
             </div>
           </div>
           <div class="hero-bottle">
-            <img src="assets/botella.webp" alt="Botella de Abasolo, El Whisky de México" width="560" height="1693">
+            <img src="assets/botella-de.webp" data-i18n-alt="hero_alt" alt="Botella de Abasolo con etiqueta en alemán (0.7 l)" width="295" height="892">
           </div>
         </div>
         <div class="stats reveal" id="stats"></div>
       </div>
     </div>
+
+    <!-- Galería: 5 imágenes del producto -->
+    <section id="galeria">
+      <div class="wrap">
+        <div class="sec-head reveal"><p class="label" data-i18n="gal_eyebrow"></p><h2 data-i18n="gal_title"></h2><p class="intro" data-i18n="gal_intro"></p></div>
+        <div class="gallery reveal" id="gallery"></div>
+      </div>
+    </section>
 
     <!-- Tabla de contenidos -->
     <section id="contenido">
@@ -482,6 +514,14 @@
     s11: "Reg. (UE) 2019/787; NOM-199-SCFI-2017; Directiva 2007/45/CE; WKO (2026); Food & Wine en Español (2020)."
   };
 
+  const GALLERY = [
+    { src: "assets/botella-de.webp", w: 295, h: 892 },
+    { src: "assets/etiqueta-de.webp", w: 252, h: 506 },
+    { src: "assets/botella.webp", w: 560, h: 1693 },
+    { src: "assets/etiqueta-mx.webp", w: 520, h: 1063 },
+    { src: "assets/mx-de.webp", w: 676, h: 900 }
+  ];
+
   const RATE = 20.1192; // MXN por EUR, Banxico 7/10/2026
   const PRICES = [
     ["MX", "La Europea", null, 750, 654.00, "MXN"],
@@ -502,7 +542,16 @@
       menu: "Contenido", sheet: "Ficha técnica del producto", sheet_title: "Ficha técnica del producto", toc_eyebrow: "Segundo parcial",
       hero_eyebrow: "Ficha técnica del producto", soul: "Alma de la Tierra",
       hero_sub: "Whisky de maíz ancestral · 43% Alc. Vol. País destino: Alemania · Marco comercial: TLCUEM.",
-      hero_cta1: "Ver ficha técnica", hero_cta2: "Precios",
+      hero_cta1: "Ver ficha técnica", hero_cta2: "Precios", hero_cta3: "Galería",
+      hero_alt: "Botella de Abasolo con etiqueta en alemán (0.7 l)",
+      gal_eyebrow: "Galería", gal_title: "La botella", gal_intro: "5 imágenes del producto. Usa las flechas, las miniaturas o desliza con el dedo.", gal_prev: "Imagen anterior", gal_next: "Imagen siguiente",
+      gallery: [
+        ["Botella para Alemania · 0.7 l", "Etiqueta frontal en alemán: “Seele der Erde”, “Der Whisky aus Mexiko”, Mais-Whisky 43 % vol, Inhalt 0,7 l."],
+        ["Etiqueta en alemán", "Traduce los textos de la etiqueta original: nixtamalizado según técnicas tradicionales, destilado en alambiques de cobre, 100% maíz ancestral y hecho en México."],
+        ["Botella para México · 750 ml", "Etiqueta original en español con el lema “Alma de la Tierra” y “100% Maíz Ancestral”."],
+        ["Etiqueta original", "Whisky de maíz ancestral, 43% Alc. Vol., Cont. Net. 750 ml · Destilería y Bodega Abasolo."],
+        ["México y Alemania", "La misma botella cuadrada: 750 ml con etiqueta en español para México y 0.7 l con etiqueta en alemán para la UE."]
+      ],
       stats: [["43%", "Alc. Vol."], ["700 ml", "Presentación para la UE"], ["≈ 87 km", "Calimaya – Jilotepec, en línea recta"], ["0%", "Arancel de la UE"]],
       toc: ["Nombre comercial y científico", "Características físicas", "Región y fechas de producción", "Proceso de producción", "Tabla de contenidos (insumos)", "Clasificación arancelaria", "Precio nacional e internacional", "Competencia en Alemania", "NOM con las que debe cumplir", "Aranceles en el destino", "Regulaciones no arancelarias", "Empaque, envase y embalaje", "Bibliografía"],
       h2: ["Nombre comercial y nombre científico", "Características físicas", "Región y fechas de producción", "Proceso de producción", "Tabla de contenidos: insumos del proceso", "Clasificación arancelaria", "Precio promedio nacional e internacional", "Competencia en el mercado de destino", "NOM con las que debe cumplir en México", "Aranceles en el mercado de destino", "Restricciones y regulaciones no arancelarias", "Empaque, envase y embalaje", "Bibliografía del producto"],
@@ -526,8 +575,8 @@
       ],
       pres_title: "Presentaciones",
       pres: {
-        750: [["México y EE. UU.", ""], ["Precio promedio en México: $629.50 MXN", ""], ["✗ No se permite en la UE", "no"]],
-        700: [["Alemania, UE y Reino Unido", ""], ["Precio promedio en Alemania: €37.61", ""], ["✓ Tamaño obligatorio en la UE", "ok"]]
+        750: [["México y EE. UU.", ""], ["Etiqueta original en español", ""], ["Precio promedio en México: $629.50 MXN", ""], ["✗ No se permite en la UE", "no"]],
+        700: [["Alemania, UE y Reino Unido", ""], ["Etiqueta frontal en alemán", ""], ["Precio promedio en Alemania: €37.61", ""], ["✓ Tamaño obligatorio en la UE", "ok"]]
       },
       pres_chips: "Algunos tamaños permitidos para destilados en la UE (Directiva 2007/45/CE):",
       region_head: ["Etapa", "Periodo", "Lugar"],
@@ -666,7 +715,16 @@
       menu: "Contents", sheet: "Product data sheet", sheet_title: "Product data sheet", toc_eyebrow: "Second term project",
       hero_eyebrow: "Product data sheet", soul: "Soul of the Earth",
       hero_sub: "Ancestral corn whisky · 43% ABV. Destination country: Germany · Trade framework: EU–Mexico Agreement (TLCUEM).",
-      hero_cta1: "View data sheet", hero_cta2: "Prices",
+      hero_cta1: "View data sheet", hero_cta2: "Prices", hero_cta3: "Gallery",
+      hero_alt: "Abasolo bottle with a German label (0.7 l)",
+      gal_eyebrow: "Gallery", gal_title: "The bottle", gal_intro: "5 product images. Use the arrows, the thumbnails or swipe.", gal_prev: "Previous image", gal_next: "Next image",
+      gallery: [
+        ["Bottle for Germany · 0.7 l", "German front label: “Seele der Erde”, “Der Whisky aus Mexiko”, Mais-Whisky 43 % vol, Inhalt 0,7 l."],
+        ["German label", "It translates the original label: nixtamalized using traditional techniques, distilled in copper pot stills, 100% ancestral corn, made in Mexico."],
+        ["Bottle for Mexico · 750 ml", "Original Spanish label with the motto “Alma de la Tierra” and “100% Maíz Ancestral”."],
+        ["Original label", "Ancestral corn whisky, 43% ABV, net content 750 ml · Destilería y Bodega Abasolo."],
+        ["Mexico and Germany", "The same square bottle: 750 ml with a Spanish label for Mexico and 0.7 l with a German label for the EU."]
+      ],
       stats: [["43%", "ABV"], ["700 ml", "EU bottle size"], ["≈ 87 km", "Calimaya – Jilotepec, straight line"], ["0%", "EU customs duty"]],
       toc: ["Commercial and scientific name", "Physical characteristics", "Production region and dates", "Production process", "Inputs table", "Tariff classification", "Domestic and international price", "Competition in Germany", "Mexican standards (NOM)", "Duties at destination", "Non-tariff regulations", "Packaging", "Bibliography"],
       h2: ["Commercial name and scientific name", "Physical characteristics", "Production region and dates", "Production process", "Inputs used in the process", "Tariff classification", "Average domestic and international price", "Competition in the destination market", "Mexican standards (NOM) it must meet", "Duties in the destination market", "Non-tariff restrictions and regulations", "Primary, secondary and tertiary packaging", "Product bibliography"],
@@ -690,8 +748,8 @@
       ],
       pres_title: "Bottle sizes",
       pres: {
-        750: [["Mexico and the US", ""], ["Average price in Mexico: MX$629.50", ""], ["✗ Not allowed in the EU", "no"]],
-        700: [["Germany, EU and UK", ""], ["Average price in Germany: €37.61", ""], ["✓ Required size in the EU", "ok"]]
+        750: [["Mexico and the US", ""], ["Original Spanish label", ""], ["Average price in Mexico: MX$629.50", ""], ["✗ Not allowed in the EU", "no"]],
+        700: [["Germany, EU and UK", ""], ["German front label", ""], ["Average price in Germany: €37.61", ""], ["✓ Required size in the EU", "ok"]]
       },
       pres_chips: "Some sizes allowed for spirits in the EU (Directive 2007/45/EC):",
       region_head: ["Stage", "Period", "Place"],
@@ -830,7 +888,16 @@
       menu: "Inhalt", sheet: "Produktdatenblatt", sheet_title: "Produktdatenblatt", toc_eyebrow: "Zweite Teilprüfung",
       hero_eyebrow: "Produktdatenblatt", soul: "Seele der Erde",
       hero_sub: "Whisky aus Ur-Mais · 43 % vol. Zielland: Deutschland · Handelsrahmen: Abkommen EU–Mexiko (TLCUEM).",
-      hero_cta1: "Datenblatt ansehen", hero_cta2: "Preise",
+      hero_cta1: "Datenblatt ansehen", hero_cta2: "Preise", hero_cta3: "Galerie",
+      hero_alt: "Abasolo-Flasche mit deutschem Etikett (0,7 l)",
+      gal_eyebrow: "Galerie", gal_title: "Die Flasche", gal_intro: "5 Produktbilder. Nutzen Sie die Pfeile, die Miniaturen oder wischen Sie.", gal_prev: "Vorheriges Bild", gal_next: "Nächstes Bild",
+      gallery: [
+        ["Flasche für Deutschland · 0,7 l", "Deutsches Frontetikett: „Seele der Erde“, „Der Whisky aus Mexiko“, Mais-Whisky 43 % vol, Inhalt 0,7 l."],
+        ["Deutsches Etikett", "Übersetzt das Originaletikett: nixtamalisiert nach traditionellen Verfahren, destilliert in Kupferbrennblasen, 100 % ursprünglicher Mais, hergestellt in Mexiko."],
+        ["Flasche für Mexiko · 750 ml", "Originaletikett auf Spanisch mit dem Motto „Alma de la Tierra“ und „100% Maíz Ancestral“."],
+        ["Originaletikett", "Whisky aus Ur-Mais, 43 % vol, Nennfüllmenge 750 ml · Destilería y Bodega Abasolo."],
+        ["Mexiko und Deutschland", "Dieselbe eckige Flasche: 750 ml mit spanischem Etikett für Mexiko und 0,7 l mit deutschem Etikett für die EU."]
+      ],
       stats: [["43 %", "Alkoholgehalt"], ["700 ml", "Flaschengröße für die EU"], ["≈ 87 km", "Calimaya – Jilotepec, Luftlinie"], ["0 %", "EU-Zollsatz"]],
       toc: ["Handels- und wissenschaftlicher Name", "Physische Eigenschaften", "Herkunftsregion und Produktionszeiten", "Herstellungsprozess", "Rohstofftabelle", "Zolltarifliche Einreihung", "Preis in Mexiko und Deutschland", "Wettbewerb in Deutschland", "Mexikanische Normen (NOM)", "Abgaben im Zielland", "Nichttarifäre Vorschriften", "Verpackung", "Literaturverzeichnis"],
       h2: ["Handelsname und wissenschaftlicher Name", "Physische Eigenschaften", "Herkunftsregion und Produktionszeiten", "Herstellungsprozess", "Eingesetzte Rohstoffe und Materialien", "Zolltarifliche Einreihung", "Durchschnittspreis in Mexiko und Deutschland", "Wettbewerb im Zielmarkt", "Mexikanische Normen (NOM), die einzuhalten sind", "Abgaben im Zielmarkt", "Nichttarifäre Beschränkungen und Vorschriften", "Verpackung: primär, sekundär, tertiär", "Literaturverzeichnis"],
@@ -854,8 +921,8 @@
       ],
       pres_title: "Flaschengrößen",
       pres: {
-        750: [["Mexiko und USA", ""], ["Durchschnittspreis in Mexiko: 629,50 MXN", ""], ["✗ In der EU nicht zulässig", "no"]],
-        700: [["Deutschland, EU und Vereinigtes Königreich", ""], ["Durchschnittspreis in Deutschland: 37,61 €", ""], ["✓ Pflichtgröße in der EU", "ok"]]
+        750: [["Mexiko und USA", ""], ["Originaletikett auf Spanisch", ""], ["Durchschnittspreis in Mexiko: 629,50 MXN", ""], ["✗ In der EU nicht zulässig", "no"]],
+        700: [["Deutschland, EU und Vereinigtes Königreich", ""], ["Deutsches Frontetikett", ""], ["Durchschnittspreis in Deutschland: 37,61 €", ""], ["✓ Pflichtgröße in der EU", "ok"]]
       },
       pres_chips: "Einige in der EU zulässige Größen für Spirituosen (Richtlinie 2007/45/EG):",
       region_head: ["Etappe", "Zeitraum", "Ort"],
@@ -996,7 +1063,7 @@
     get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   };
-  const state = { pres: 700, pin: "jilotepec", onlyKey: false, market: "all", cur: "orig", stop: 0, value: 15, freight: 1, qty: 6, y2027: false };
+  const state = { pres: 700, pin: "jilotepec", onlyKey: false, market: "all", cur: "orig", stop: 0, gal: 0, value: 15, freight: 1, qty: 6, y2027: false };
   let lang = store.get("lang") || (navigator.language || "es").slice(0, 2);
   if (!L[lang]) lang = "es";
   let t = L[lang];
@@ -1024,7 +1091,7 @@
       return `<div class="phys">
         <div class="pres card">
           <p class="label">${t.pres_title}</p>
-          <div class="pres-stage"><img src="assets/botella.webp" alt="Abasolo" style="transform:scale(${state.pres === 750 ? 1 : .955})"></div>
+          <div class="pres-stage"><img src="assets/${state.pres === 750 ? "botella.webp" : "botella-de.webp"}" alt="Abasolo ${state.pres} ml" style="transform:scale(${state.pres === 750 ? 1 : .955})"></div>
           <div class="seg" role="group">${[750, 700].map(v => `<button data-pres="${v}" aria-pressed="${state.pres === v}">${v} ml</button>`).join("")}</div>
           <div class="pres-info">${info}</div>
           <div class="chips">${t.pres_chips}<br>${[0.5, 0.7, 1].map(v => `<span class="${v === 0.7 ? "on" : ""}">${liters(v)}</span>`).join("")}</div>
@@ -1118,7 +1185,7 @@
         <div class="grid regs">${t.regs.map(r => `<div class="card item"><h3>${r[0]}</h3><p>${r[1]}</p></div>`).join("")}</div>${sources("s11")}`;
     },
     s12() {
-      return `<div class="grid pack">${t.pack.map((p, i) => `<div class="card item ${i === 2 ? "gold" : ""}">${i === 0 ? `<img class="thumb" src="assets/botella.webp" alt="" loading="lazy">` : ""}<div class="n">${pad(i)}</div><h3>${p[0]}</h3><h3 class="plain">${p[1]}</h3><ul>${p[2].map(x => `<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
+      return `<div class="grid pack">${t.pack.map((p, i) => `<div class="card item ${i === 2 ? "gold" : ""}">${i === 0 ? `<img class="thumb" src="assets/botella-de.webp" alt="" loading="lazy">` : ""}<div class="n">${pad(i)}</div><h3>${p[0]}</h3><h3 class="plain">${p[1]}</h3><ul>${p[2].map(x => `<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
         <div class="card route" style="--p:${state.stop / 3}">
           <p class="label">${t.route_title}</p><p class="muted" style="margin:0">${t.route_hint}</p>
           <div class="stops-wrap"><span class="r-track"></span><span class="r-fill"></span>
@@ -1132,6 +1199,24 @@
       return `<details class="card bib"><summary>${t.bib_btn.replace("{n}", BIB.length)}</summary><ol>${BIB.map(b => `<li>${b.replace(/(https?:\/\/\S+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')}</li>`).join("")}</ol></details><p class="note">${t.bib_note}</p>`;
     }
   };
+
+  function renderGallery() {
+    const i = state.gal, g = GALLERY[i], c = t.gallery[i];
+    $("#gallery").innerHTML = `
+      <div class="card gal-main" id="gal-main">
+        <button class="gal-nav prev" data-gal="-1" aria-label="${t.gal_prev}">‹</button>
+        <img class="swap" src="${g.src}" alt="${c[0]}" width="${g.w}" height="${g.h}">
+        <button class="gal-nav next" data-gal="1" aria-label="${t.gal_next}">›</button>
+        <span class="gal-count">${i + 1} / ${GALLERY.length}</span>
+      </div>
+      <div class="gal-info" aria-live="polite">
+        <p class="label">${pad(i)} / ${pad(GALLERY.length - 1)}</p>
+        <h3>${c[0]}</h3>
+        <p class="desc">${c[1]}</p>
+        <div class="gal-thumbs" role="group">${GALLERY.map((x, k) => `<button data-gal-i="${k}" aria-pressed="${k === i}" aria-label="${t.gallery[k][0]}"><img src="${x.src}" alt="" loading="lazy"></button>`).join("")}</div>
+      </div>`;
+  }
+  function galGo(i) { state.gal = (i + GALLERY.length) % GALLERY.length; renderGallery(); }
 
   function renderSection(id) {
     const sec = document.getElementById(id);
@@ -1160,7 +1245,9 @@
     $("#stats").innerHTML = t.stats.map(s => `<div class="stat"><strong>${s[0]}</strong><span>${s[1]}</span></div>`).join("");
     const links = t.toc.map((x, i) => `<li><a href="#s${i + 1}"><b>${pad(i)}</b>${x}</a></li>`).join("");
     $("#toc-list").innerHTML = links;
-    $("#menu-list").innerHTML = links;
+    $("#menu-list").innerHTML = `<li><a href="#galeria"><b>◆</b>${t.gal_eyebrow}</a></li>` + links;
+    $$("[data-i18n-alt]").forEach(el => { el.alt = t[el.dataset.i18nAlt]; });
+    renderGallery();
     Object.keys(R).forEach(renderSection);
   }
 
@@ -1180,6 +1267,8 @@
     else if (d.market) { state.market = d.market; renderSection("s7"); }
     else if (d.cur) { state.cur = d.cur; renderSection("s7"); }
     else if (d.stop) { state.stop = +d.stop; renderSection("s12"); }
+    else if (d.gal) { galGo(state.gal + +d.gal); }
+    else if (d.galI) { galGo(+d.galI); }
     else if (d.copy) {
       try { await navigator.clipboard.writeText(d.copy); }
       catch (err) {
@@ -1196,7 +1285,22 @@
     if (map[e.target.id]) { state[map[e.target.id]] = e.target.value; calc(); }
     if (e.target.id === "c-2027") { state.y2027 = e.target.checked; calc(); }
   });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") toggleMenu(false); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") toggleMenu(false);
+    // Flechas del teclado para la galería cuando está en pantalla
+    if ((e.key === "ArrowLeft" || e.key === "ArrowRight") && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) {
+      const r = $("#gallery").getBoundingClientRect();
+      if (r.top < innerHeight && r.bottom > 0) galGo(state.gal + (e.key === "ArrowRight" ? 1 : -1));
+    }
+  });
+  // Deslizar con el dedo en la galería
+  let swipeX = null;
+  document.addEventListener("pointerdown", e => { if (e.target.closest("#gal-main") && !e.target.closest("button")) swipeX = e.clientX; });
+  document.addEventListener("pointerup", e => {
+    if (swipeX === null) return;
+    const dx = e.clientX - swipeX; swipeX = null;
+    if (Math.abs(dx) > 40) galGo(state.gal + (dx < 0 ? 1 : -1));
+  });
 
   // Verificación de edad
   const gate = $("#gate");
