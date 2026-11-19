@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0A0A0A">
   <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="preload" as="image" href="assets/botella-de.webp">
+  <link rel="preload" as="image" href="assets/video-poster.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Carlito:wght@400;700&display=swap" rel="stylesheet">
@@ -81,10 +81,15 @@
     .btn-gold:hover { background: var(--gold-light); }
     .btn-line { border-color: var(--line); color: var(--text); background: none; }
     .btn-line:hover { border-color: var(--gold); }
-    .hero-bottle { position: relative; display: flex; justify-content: center; }
-    .hero-bottle::before { content: ""; position: absolute; inset: 15% 0 5%; background: radial-gradient(circle, rgba(201,164,92,.35), transparent 62%); filter: blur(24px); }
-    .hero-bottle img { position: relative; height: min(600px, 74vh); width: auto; animation: float 7s ease-in-out infinite; filter: drop-shadow(0 30px 40px rgba(0,0,0,.6)); }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .hero-video { position: relative; display: flex; justify-content: center; }
+    .hero-video::before { content: ""; position: absolute; inset: 10% -10% 0; background: radial-gradient(circle, rgba(201,164,92,.32), transparent 62%); filter: blur(28px); }
+    .video-frame { position: relative; height: min(600px, 74vh); aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; border: 1px solid var(--gold-dark); background: #000; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
+    .video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+    .video-ctrls { position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; }
+    .v-btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; height: 38px; min-width: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(242,238,230,.35); background: rgba(10,10,10,.62); backdrop-filter: blur(6px); color: var(--text); font-size: .8rem; font-weight: 700; transition: border-color .2s, color .2s; }
+    .v-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .v-btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+    .v-progress { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--gold); }
     .flag { display: inline-block; width: .55em; height: .37em; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,.15); vertical-align: middle; }
     .flag-mx { background: linear-gradient(90deg, #006847 33.3%, #fff 33.3% 66.6%, #ce1126 66.6%); }
     .flag-de { background: linear-gradient(#000 33.3%, #dd0000 33.3% 66.6%, #ffce00 66.6%); }
@@ -329,8 +334,8 @@
       .menu-btn span { display: none; }
       .hero { padding: 36px 0 44px; }
       .hero-grid { grid-template-columns: 1fr; gap: 12px; }
-      .hero-bottle { order: -1; }
-      .hero-bottle img { height: 300px; }
+      .hero-video { order: -1; }
+      .video-frame { height: min(540px, 66vh); }
       .stats { grid-template-columns: 1fr 1fr; margin-top: 36px; }
       .toc ol { columns: 1; }
       .price-cards, .two, .regs, .pack { grid-template-columns: 1fr; }
@@ -415,8 +420,18 @@
               <a class="btn btn-line" href="#s7" data-i18n="hero_cta2"></a>
             </div>
           </div>
-          <div class="hero-bottle">
-            <img src="assets/botella-de.webp" data-i18n-alt="hero_alt" alt="Botella de Abasolo con etiqueta en alemán (0.7 l)" width="295" height="892">
+          <div class="hero-video">
+            <div class="video-frame">
+              <video id="hero-video" muted loop playsinline preload="metadata" poster="assets/video-poster.webp" width="576" height="1024">
+                <source src="assets/abasolo-video.mp4" type="video/mp4">
+                <p>Tu navegador no puede reproducir el video. <a href="assets/abasolo-video.mp4">Descárgalo aquí</a>.</p>
+              </video>
+              <div class="video-ctrls">
+                <button class="v-btn" id="v-play" type="button"></button>
+                <button class="v-btn" id="v-sound" type="button"></button>
+              </div>
+              <span class="v-progress" id="v-progress"></span>
+            </div>
           </div>
         </div>
         <div class="stats reveal" id="stats"></div>
@@ -544,6 +559,8 @@
       hero_sub: "Whisky de maíz ancestral · 43% Alc. Vol. País destino: Alemania · Marco comercial: TLCUEM.",
       hero_cta1: "Ver ficha técnica", hero_cta2: "Precios", hero_cta3: "Galería",
       hero_alt: "Botella de Abasolo con etiqueta en alemán (0.7 l)",
+      video_label: "Video de Abasolo: El maíz tiene alma… 100% maíz ancestral, nixtamalizado. Destilado en alambiques de cobre. Ya en Alemania, desde 38 € (0.7 l). Alma de la tierra.",
+      v_play: "Reproducir video", v_pause: "Pausar video", v_sound_on: "Activar sonido", v_mute: "Silenciar",
       gal_eyebrow: "Galería", gal_title: "La botella", gal_intro: "5 imágenes del producto. Usa las flechas, las miniaturas o desliza con el dedo.", gal_prev: "Imagen anterior", gal_next: "Imagen siguiente",
       gallery: [
         ["Botella para Alemania · 0.7 l", "Etiqueta frontal en alemán: “Seele der Erde”, “Der Whisky aus Mexiko”, Mais-Whisky 43 % vol, Inhalt 0,7 l."],
@@ -717,6 +734,8 @@
       hero_sub: "Ancestral corn whisky · 43% ABV. Destination country: Germany · Trade framework: EU–Mexico Agreement (TLCUEM).",
       hero_cta1: "View data sheet", hero_cta2: "Prices", hero_cta3: "Gallery",
       hero_alt: "Abasolo bottle with a German label (0.7 l)",
+      video_label: "Abasolo video: Corn has a soul… 100% ancestral corn, nixtamalized. Distilled in copper pot stills. Now in Germany, from €38 (0.7 l). Soul of the earth.",
+      v_play: "Play video", v_pause: "Pause video", v_sound_on: "Sound on", v_mute: "Mute",
       gal_eyebrow: "Gallery", gal_title: "The bottle", gal_intro: "5 product images. Use the arrows, the thumbnails or swipe.", gal_prev: "Previous image", gal_next: "Next image",
       gallery: [
         ["Bottle for Germany · 0.7 l", "German front label: “Seele der Erde”, “Der Whisky aus Mexiko”, Mais-Whisky 43 % vol, Inhalt 0,7 l."],
@@ -890,6 +909,8 @@
       hero_sub: "Whisky aus Ur-Mais · 43 % vol. Zielland: Deutschland · Handelsrahmen: Abkommen EU–Mexiko (TLCUEM).",
       hero_cta1: "Datenblatt ansehen", hero_cta2: "Preise", hero_cta3: "Galerie",
       hero_alt: "Abasolo-Flasche mit deutschem Etikett (0,7 l)",
+      video_label: "Abasolo-Video: Mais hat eine Seele … 100 % Ur-Mais, nixtamalisiert. Destilliert in Kupferbrennblasen. Jetzt in Deutschland, ab 38 € (0,7 l). Seele der Erde.",
+      v_play: "Video abspielen", v_pause: "Video pausieren", v_sound_on: "Ton an", v_mute: "Stumm",
       gal_eyebrow: "Galerie", gal_title: "Die Flasche", gal_intro: "5 Produktbilder. Nutzen Sie die Pfeile, die Miniaturen oder wischen Sie.", gal_prev: "Vorheriges Bild", gal_next: "Nächstes Bild",
       gallery: [
         ["Flasche für Deutschland · 0,7 l", "Deutsches Frontetikett: „Seele der Erde“, „Der Whisky aus Mexiko“, Mais-Whisky 43 % vol, Inhalt 0,7 l."],
@@ -1236,6 +1257,40 @@
     body.innerHTML = rows.map((x, i) => `<tr class="${i === 4 ? "total" : ""}"><td>${t.calc.rows[i]}</td><td class="num">${eur(x)}</td><td class="num">${eur(x * q)}</td></tr>`).join("");
   }
 
+  /* Video de portada */
+  const vid = $("#hero-video"), vPlay = $("#v-play"), vSound = $("#v-sound"), vProg = $("#v-progress");
+  const ICON = {
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>',
+    pause: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>',
+    off: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg>',
+    on: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>'
+  };
+  let userPaused = false;
+  function updateVideoUI() {
+    vPlay.innerHTML = vid.paused ? ICON.play : ICON.pause;
+    vPlay.setAttribute("aria-label", vid.paused ? t.v_play : t.v_pause);
+    vSound.innerHTML = (vid.muted ? ICON.off : ICON.on) + `<span>${vid.muted ? t.v_sound_on : t.v_mute}</span>`;
+    vSound.setAttribute("aria-pressed", !vid.muted);
+    vid.setAttribute("aria-label", t.video_label);
+  }
+  function tryPlay() {
+    if (userPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const pr = vid.play();
+    if (pr && pr.catch) pr.catch(updateVideoUI);
+  }
+  function togglePlay() {
+    if (vid.paused) { userPaused = false; vid.play(); } else { userPaused = true; vid.pause(); }
+  }
+  ["play", "pause", "volumechange"].forEach(ev => vid.addEventListener(ev, updateVideoUI));
+  vid.addEventListener("timeupdate", () => { vProg.style.width = (vid.duration ? vid.currentTime / vid.duration * 100 : 0) + "%"; });
+  vid.addEventListener("click", togglePlay);
+  vPlay.addEventListener("click", togglePlay);
+  vSound.addEventListener("click", () => { vid.muted = !vid.muted; if (!vid.muted && vid.paused) { userPaused = false; vid.play(); } });
+  // Se pausa cuando sale de la pantalla y vuelve a reproducirse al regresar
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([en]) => { if (en.isIntersecting) tryPlay(); else if (!vid.paused) vid.pause(); }, { threshold: .25 }).observe(vid);
+  } else tryPlay();
+
   function render() {
     t = L[lang];
     document.documentElement.lang = lang;
@@ -1248,6 +1303,7 @@
     $("#menu-list").innerHTML = `<li><a href="#galeria"><b>◆</b>${t.gal_eyebrow}</a></li>` + links;
     $$("[data-i18n-alt]").forEach(el => { el.alt = t[el.dataset.i18nAlt]; });
     renderGallery();
+    updateVideoUI();
     Object.keys(R).forEach(renderSection);
   }
 
